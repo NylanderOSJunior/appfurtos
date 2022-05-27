@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 final ThemeData theme = ThemeData(
-  primaryColor: const Color(0xFF0277BD),
+  primaryColor: Color.fromARGB(255, 2, 77, 189),
   primaryColorDark: const Color(0xFFE76901),
   scaffoldBackgroundColor: Colors.white,
   backgroundColor: Colors.white,
@@ -11,21 +11,21 @@ final ThemeData theme = ThemeData(
     disabledColor: Color(0xFFE5E5E5),
   ),
   textSelectionTheme: TextSelectionThemeData(
-    cursorColor: const Color(0xFF0277BD),
-    selectionColor: const Color(0xFF0277BD).withOpacity(0.5),
-    selectionHandleColor: const Color(0xFF0277BD),
+    cursorColor: const Color.fromARGB(255, 2, 77, 189),
+    selectionColor: const Color.fromARGB(255, 2, 77, 189).withOpacity(0.5),
+    selectionHandleColor: const Color.fromARGB(255, 2, 77, 189),
   ),
   colorScheme: const ColorScheme(
-    primary: Color(0xFF0277BD),
+    primary: Color.fromARGB(255, 2, 77, 189),
     primaryVariant: Color(0xFFE76901),
     secondary: Color(0xFFF48121),
     secondaryVariant: Color(0xFFE76901),
     surface: Colors.red,
     background: Colors.white,
     error: Colors.red,
-    onPrimary: Color(0xFF0277BD),
-    onSecondary: Color(0xFF0277BD),
-    onSurface: Color(0xFF0277BD),
+    onPrimary: Color.fromARGB(255, 2, 77, 189),
+    onSecondary: Color.fromARGB(255, 2, 77, 189),
+    onSurface: Color.fromARGB(255, 2, 77, 189),
     onBackground: Colors.white,
     onError: Colors.red,
     brightness: Brightness.light,

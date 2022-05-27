@@ -6,7 +6,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Apresentação UNIRV',
+      title: 'AppFurtos',
       theme: theme,
     ).modular();
   }
