@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
-import 'login_store.dart';
+import '../stores/login_store.dart';
 import 'package:appfurtos/app/core/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:appfurtos/app/shared/common_button_widget.dart';
@@ -100,7 +100,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginStore> {
                       child: const Text(
                         'Recuperar Senha',
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/passwordRecover');
+                      },
                     ),
                   ),
                   const SizedBox(
