@@ -11,7 +11,6 @@ class TextFieldWidget extends StatelessWidget {
   final String label;
   final Function(String?)? onSaved;
   final Function(String?)? onChanged;
-  final Widget? suffixIcon;
   const TextFieldWidget({
     Key? key,
     this.autoFocus = false,
@@ -24,7 +23,6 @@ class TextFieldWidget extends StatelessWidget {
     this.controller,
     this.onSaved,
     this.onChanged,
-    this.suffixIcon,
   }) : super(key: key);
 
   @override
@@ -39,7 +37,6 @@ class TextFieldWidget extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(15)),
         ),
         prefixIcon: prefixIcon,
-        suffixIcon: suffixIcon,
         labelText: label,
       ),
       validator: validator,
