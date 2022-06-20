@@ -127,20 +127,15 @@ class _PasswordRecoverPageState extends State<PasswordRecoverPage> {
                             const SizedBox(
                               height: 15,
                             ),
-                            TripleBuilder<LoginStore, Exception, UserModel>(
-                              builder: (_, triple) {
-                                return CommonButtonWidget(
-                                  onTap: store.isLoading
-                                      ? null
-                                      : () async {
-                                          // if (_formKey.currentState!.validate()) {
-
-                                          await store.login();
-                                          // }
-                                        },
-                                  label: 'Recuperar Senha',
-                                );
-                              },
+                            Container(
+                              height: 40,
+                              alignment: Alignment.center,
+                              child: TextButton(
+                                child: const Text(
+                                  'Enviar E-mail',
+                                ),
+                                onPressed: () {},
+                              ),
                             ),
                           ],
                         ),
