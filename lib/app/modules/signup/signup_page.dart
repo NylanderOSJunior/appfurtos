@@ -11,11 +11,23 @@ import 'components/register_new_user_form.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
+
   @override
   SignupPageState createState() => SignupPageState();
 }
 
 class SignupPageState extends ModularState<SignupPage, SignupStore> {
+  Widget _buildLoginBody() {
+    return TripleBuilder<SignupStore, Exception, UserModel>(
+      builder: (_, triple) {
+        if (triple.isLoading) {
+          return const LoadingWidget();
+        }
+        return const RegisterNewUserFormWidget();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,17 +60,6 @@ class SignupPageState extends ModularState<SignupPage, SignupStore> {
           _buildLoginBody(),
         ],
       ),
-    );
-  }
-
-  Widget _buildLoginBody() {
-    return TripleBuilder<SignupStore, Exception, UserModel>(
-      builder: (_, triple) {
-        if (triple.isLoading) {
-          return const LoadingWidget();
-        }
-        return const RegisterNewUserFormWidget();
-      },
     );
   }
 }
