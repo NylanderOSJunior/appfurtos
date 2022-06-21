@@ -54,7 +54,7 @@ class _OcurrencyFormWidgetState extends State<OcurrencyFormWidget> {
           TextFieldWidget(
             textInputType: TextInputType.text,
             prefixIcon: const Icon(Icons.light),
-            label: 'Número do poste',
+            label: 'Número do Usuarios',
             controller: emailController,
             onSaved: (email) {
               emailController.text = email.toString();
@@ -72,7 +72,7 @@ class _OcurrencyFormWidgetState extends State<OcurrencyFormWidget> {
           ),
           TextFieldWidget(
             prefixIcon: const Icon(Icons.list_alt),
-            label: 'Descrição',
+            label: 'Descrição do Ocorrido',
             controller: passwordController,
             onSaved: (password) {
               passwordController.text = password.toString();
