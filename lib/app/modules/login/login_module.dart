@@ -1,3 +1,4 @@
+import 'package:appfurtos/app/modules/home/home_module.dart';
 import 'package:appfurtos/app/modules/signup/signup_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'stores/login_store.dart';
@@ -19,6 +20,11 @@ class LoginModule extends Module {
     ModuleRoute(
       '/signup',
       module: SignupModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      '/home',
+      module: HomeModule(),
       transition: TransitionType.fadeIn,
     ),
   ];

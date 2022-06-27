@@ -6,6 +6,7 @@ import 'package:flutter_triple/flutter_triple.dart';
 import '../stores/login_store.dart';
 import 'package:appfurtos/app/core/models/user_model.dart';
 import 'package:flutter/material.dart';
+import 'package:appfurtos/app/shared/commom_dialog.dart';
 import 'package:appfurtos/app/shared/common_button_widget.dart';
 import 'package:appfurtos/app/shared/loading_widget.dart';
 import 'package:appfurtos/app/shared/textfield_widget.dart';
@@ -128,10 +129,27 @@ class _LoginPageState extends ModularState<LoginPage, LoginStore> {
                         onTap: store.isLoading
                             ? null
                             : () async {
-                                // if (_formKey.currentState!.validate()) {
-                                log('login');
-                                await store.login();
-                                // }
+                                if (_formKey.currentState!.validate()) {
+                                  _formKey.currentState!.save();
+                                  await store.login().then(
+                                    (value) {
+                                      Navigator.of(context)
+                                          .pushReplacementNamed('/home/');
+                                    },
+                                  ).catchError(
+                                    (onError) {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return const CommomDialog(
+                                            message:
+                                                'Erro ao tentar realizar o login, por favor verifique se o usuário e senha estão corretos!',
+                                          );
+                                        },
+                                      );
+                                    },
+                                  );
+                                }
                               },
                         label: 'Login',
                       );
