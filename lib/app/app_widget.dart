@@ -10,7 +10,7 @@ class AppWidget extends StatelessWidget {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     return MaterialApp(
-      title: 'Recupera Poste',
+      title: 'AppFurtos',
       theme: theme,
       debugShowCheckedModeBanner: false,
     ).modular();

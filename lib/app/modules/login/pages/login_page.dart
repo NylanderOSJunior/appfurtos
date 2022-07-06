@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:appfurtos/app/shared/background_widget.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
@@ -33,16 +34,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginStore> {
           }
           return Stack(
             children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height,
-                child: Image.asset(
-                  'assets/imagens/background_login.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Container(
-                color: Colors.black.withOpacity(0.1),
-              ),
+              const BackGroundWidget(),
               _buildLoginBody(),
               loading,
             ],
@@ -98,8 +90,13 @@ class _LoginPageState extends ModularState<LoginPage, LoginStore> {
                     height: 40,
                     alignment: Alignment.centerRight,
                     child: TextButton(
-                      child: const Text(
+                      child: Text(
                         'Recuperar Senha',
+                        style: TextStyle(
+                          fontSize:
+                              Theme.of(context).textTheme.subtitle2!.fontSize,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                       onPressed: () {
                         Navigator.of(context).pushNamed('/passwordRecover');

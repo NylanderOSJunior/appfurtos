@@ -26,7 +26,7 @@ class LoginFormWidget extends StatelessWidget {
           TextFieldWidget(
             textInputType: TextInputType.emailAddress,
             prefixIcon: const Icon(Icons.login),
-            label: 'E-mail',
+            label: 'E-mail:',
             controller: emailController,
             onSaved: (email) {
               emailController.text = email.toString();
@@ -47,7 +47,7 @@ class LoginFormWidget extends StatelessWidget {
               return TextFieldWidget(
                 obscureText: triple.state,
                 prefixIcon: const Icon(Icons.lock),
-                label: 'Senha',
+                label: 'Senha:',
                 controller: passwordController,
                 onSaved: (password) {
                   passwordController.text = password.toString();

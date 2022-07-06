@@ -5,40 +5,32 @@ class ArrowBackWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.of(context).pop();
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Container(
-          margin: const EdgeInsets.all(1),
-          padding: const EdgeInsets.all(3),
-          decoration: BoxDecoration(
-            color: Theme.of(context).backgroundColor,
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Row(
-            children: [
-              Icon(
-                Icons.arrow_back,
-                color: Theme.of(context).primaryColor,
-                size: 15,
-              ),
-              Text(
-                'Voltar',
-                style: Theme.of(context).textTheme.headline6!.copyWith(
-                      color: Theme.of(context).primaryColor,
-                      fontSize: 15,
-                    ),
-              ),
-            ],
+    return Stack(
+      children: [
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.1,
+          left: MediaQuery.of(context).size.width * 0.05,
+          child: GestureDetector(
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+            child: Row(
+              children: [
+                Icon(
+                  Icons.arrow_back,
+                  color: Theme.of(context).primaryColor,
+                ),
+                Text(
+                  'Voltar',
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 }
