@@ -21,7 +21,7 @@ class OcurrencyCardWidget extends StatelessWidget {
           color: Theme.of(context).backgroundColor,
           borderRadius: BorderRadius.circular(15),
         ),
-        height: MediaQuery.of(context).size.height * 0.13,
+        height: MediaQuery.of(context).size.height * 0.55,
         width: MediaQuery.of(context).size.width,
         child: TripleBuilder<QuantityOcurrencyHomeCardStore, Exception,
             OcurrencyQuantityModel>(
@@ -31,7 +31,7 @@ class OcurrencyCardWidget extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Theme.of(context).backgroundColor,
                       borderRadius: const BorderRadius.only(
@@ -39,48 +39,50 @@ class OcurrencyCardWidget extends StatelessWidget {
                         topRight: Radius.circular(15),
                       ),
                     ),
-                    height: MediaQuery.of(context).size.height * 0.08,
+                    height: MediaQuery.of(context).size.height * 0.5,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Canceladas: ${store.state.canceled}',
+                              'Nome: ${store.state.canceled}',
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6!
-                                  .copyWith(fontSize: 16, color: Colors.red),
+                                  .copyWith(fontSize: 16),
+                            ),
+                            const SizedBox(
+                              height: 5,
                             ),
                             Text(
-                              'Em Aberto: ${store.state.opened}',
+                              'Marca do Equipamento: ${store.state.opened}',
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6!
-                                  .copyWith(fontSize: 16, color: Colors.grey),
+                                  .copyWith(fontSize: 16),
                             ),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Em Aandamento: ${store.state.inCurse}',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline6!
-                                  .copyWith(fontSize: 16, color: Colors.yellow),
+                            const SizedBox(
+                              height: 5,
                             ),
                             Text(
-                              'Concluídas: ${store.state.completed}',
+                              'Modelo do Equipamento: ${store.state.inCurse}',
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6!
-                                  .copyWith(fontSize: 16, color: Colors.green),
+                                  .copyWith(fontSize: 16),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Descrição: ${store.state.completed}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline6!
+                                  .copyWith(fontSize: 16),
                             ),
                           ],
                         ),

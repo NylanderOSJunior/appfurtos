@@ -1,34 +1,36 @@
+import 'package:appfurtos/app/modules/theft/components/image_picked_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
-import 'package:appfurtos/app/shared/image_picked_card_widget.dart';
-
-import 'package:appfurtos/app/modules/ocurrency/ocurrency_store.dart';
-import 'package:appfurtos/app/modules/ocurrency/stores/image_picker_store.dart';
+import 'package:appfurtos/app/modules/theft/stores/image_picked_store.dart';
+import 'package:appfurtos/app/modules/theft/stores/theft_store.dart';
+import 'package:appfurtos/app/modules/theft/components/image_picked_widget.dart';
 import 'package:appfurtos/app/shared/commom_dialog.dart';
 import 'package:appfurtos/app/shared/common_button_widget.dart';
 import 'package:appfurtos/app/shared/textfield_widget.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
-class OcurrencyFormWidget extends StatefulWidget {
-  const OcurrencyFormWidget({Key? key}) : super(key: key);
+class TheftFormWidget extends StatefulWidget {
+  const TheftFormWidget({Key? key}) : super(key: key);
 
   @override
-  State<OcurrencyFormWidget> createState() => _OcurrencyFormWidgetState();
+  State<TheftFormWidget> createState() => _TheftFormWidgetState();
 }
 
-class _OcurrencyFormWidgetState extends State<OcurrencyFormWidget> {
+class _TheftFormWidgetState extends State<TheftFormWidget> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FormState> _formKey = GlobalKey();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+    final TextEditingController codeController = TextEditingController();
+    final TextEditingController statusController = TextEditingController();
     XFile? photo = XFile('');
     final ImagePicker imagePicker = ImagePicker();
     File photoToFile = File('');
     final ImagePickerStore imagePickerStore = Modular.get();
-    final OcurrencyStore store = Modular.get();
+    final TheftStore store = Modular.get();
 
     return Form(
       key: _formKey,
@@ -53,8 +55,8 @@ class _OcurrencyFormWidgetState extends State<OcurrencyFormWidget> {
           ),
           TextFieldWidget(
             textInputType: TextInputType.text,
-            prefixIcon: const Icon(Icons.verified_user),
-            label: 'Nome do Usuario',
+            prefixIcon: const Icon(Icons.emoji_objects),
+            label: 'Nome do Usuario: ',
             controller: emailController,
             onSaved: (email) {
               emailController.text = email.toString();
@@ -71,11 +73,11 @@ class _OcurrencyFormWidgetState extends State<OcurrencyFormWidget> {
             height: 20,
           ),
           TextFieldWidget(
-            prefixIcon: const Icon(Icons.list_alt),
-            label: 'Marca do Equipamento',
-            controller: passwordController,
-            onSaved: (password) {
-              passwordController.text = password.toString();
+            prefixIcon: const Icon(Icons.code),
+            label: 'Modelo do Equipamento: ',
+            controller: codeController,
+            onSaved: (code) {
+              codeController.text = code.toString();
             },
             validator: (text) {
               if (text!.isEmpty) {
@@ -86,14 +88,14 @@ class _OcurrencyFormWidgetState extends State<OcurrencyFormWidget> {
             },
           ),
           const SizedBox(
-            height: 10,
+            height: 20,
           ),
           TextFieldWidget(
-            prefixIcon: const Icon(Icons.list_alt),
-            label: 'Modelo do Equipamento',
-            controller: passwordController,
-            onSaved: (password) {
-              passwordController.text = password.toString();
+            prefixIcon: const Icon(Icons.code),
+            label: 'Marca do Equipamento: ',
+            controller: codeController,
+            onSaved: (code) {
+              codeController.text = code.toString();
             },
             validator: (text) {
               if (text!.isEmpty) {
@@ -104,7 +106,7 @@ class _OcurrencyFormWidgetState extends State<OcurrencyFormWidget> {
             },
           ),
           const SizedBox(
-            height: 10,
+            height: 20,
           ),
           TextFieldWidget(
             prefixIcon: const Icon(Icons.list_alt),
@@ -149,7 +151,7 @@ class _OcurrencyFormWidgetState extends State<OcurrencyFormWidget> {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
                       await store
-                          .registerOcurrency()
+                          .registerTheft()
                           .then(
                             (value) {},
                           )
@@ -168,7 +170,7 @@ class _OcurrencyFormWidgetState extends State<OcurrencyFormWidget> {
                       );
                     }
                   },
-            label: 'Registrar ocorrência',
+            label: 'Cadastrar Ocorrencia',
           ),
         ],
       ),

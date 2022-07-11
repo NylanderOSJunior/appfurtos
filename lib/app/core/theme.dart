@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 final ThemeData theme = ThemeData(
   primaryColor: Color.fromARGB(255, 2, 77, 189),
   primaryColorDark: const Color(0xFFE76901),
-  scaffoldBackgroundColor: Colors.white,
-  backgroundColor: Colors.white,
+  scaffoldBackgroundColor: Color.fromARGB(255, 186, 233, 241),
+  backgroundColor: Color.fromARGB(255, 255, 255, 255),
   cardColor: const Color(0xFF737375),
   buttonTheme: const ButtonThemeData(
     buttonColor: Color(0xFFF48121),
-    disabledColor: Color(0xFFE5E5E5),
+    disabledColor: Color.fromARGB(255, 6, 144, 236),
   ),
   textSelectionTheme: TextSelectionThemeData(
     cursorColor: const Color.fromARGB(255, 2, 77, 189),

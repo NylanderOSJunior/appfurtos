@@ -1,13 +1,15 @@
 import 'dart:convert';
 
 class UserModel {
-  late String? name;
-  late String? username;
-  late String? avatarUrl;
-  late String? email;
-  late bool? isAdmin;
-  late String? address;
+  late String? id;
+  late String? name = 'nylander';
+  late String? username = 'nylander';
+  late String? avatarUrl = 'nylander';
+  late String? email = 'nylander@hotmail.com';
+  late bool? isAdmin = true;
+  late String? address = 'nylander';
   UserModel({
+    this.id,
     this.name,
     this.username,
     this.avatarUrl,
